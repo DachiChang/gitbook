@@ -9,12 +9,12 @@ RUN apk update &&\
     gitbook fetch &&\
     rm -rf /tmp/*
 
-RUN apk add font-noto wget sudo &&\
+RUN apk add font-noto wget &&\
     wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSerifTC.zip &&\
     unzip NotoSerifTC.zip &&\
-    sudo mkdir -p /usr/share/fonts/opentype/noto &&\
-    sudo cp *otf /usr/share/fonts/opentype/noto &&\
-    sudo fc-cache -f -v
+    mkdir -p /usr/share/fonts/opentype/noto &&\
+    cp *otf /usr/share/fonts/opentype/noto &&\
+    fc-cache -f -v
 
 ENV BOOKDIR /gitbook
 ENV LANG zh_TW.UTF-8
